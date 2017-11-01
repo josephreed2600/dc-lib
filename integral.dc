@@ -1,0 +1,32 @@
+[
+ SfSbSa
+ 0SK
+ []SL
+ # Let d be subinterval width
+ K1+k
+ AK^1r/Sd
+ K1-2*k
+ [d=]n ldnAP
+ # For each subinterval k in (a,b), multiply f(a+k) by d
+ 0 lbsk [
+         lklfxld*+
+#        [f(]n lkn [)*]n ldnAP 
+         lkld-dskla!>L
+        ]sL lkla!>L SS
+# 0 lask [
+#         lklfxld*+
+##        [f(]n lkn [)*]n ldnAP 
+#         lkld+dsklb>L
+#        ]sL lklb>L
+# LS
+# +2/ # average upper and lower sums
+ 
+ 
+ 0LfZ*LLZ*K+k
+ 0La*Lb*Ld*Lk*K+k
+ K2/k
+ 1/
+]sI
+
+#3k 0 5 [Sx 3lx3^* 2lx2^*+ Lx+1+] lIxfq # should yield 569.5833-ish
+3k 1 30 [d4^3*r2r/+] lIxfq
