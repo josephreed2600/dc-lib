@@ -1,0 +1,172 @@
+# Print a number as an IP address, and pop it
+[
+	ISiAi
+	OSoAo
+	
+	d
+	2 24^~rn46an
+	2 16^~rn46an
+	2  8^~rn46an
+              n
+	0*K+k
+	
+	Lii
+	Loo
+]sn
+
+# Print a number as an IP address, followed by a newline, and don't pop it
+[
+	ISiAi
+	OSoAo
+	
+	d
+	2 24^~rn46an
+	2 16^~rn46an
+	2  8^~rn46an
+              nAP
+	
+	Lii
+	Loo
+]sp
+
+# Print a number as an IP address, followed by a newline, and pop it
+[
+	lpx0*K+k
+]sP
+
+# Compile four numbers into an IP address
+[
+	ISiAi
+	OSoAo
+	
+	SsSsSs256*Ls+256*Ls+256*Ls+
+	
+	Lii
+	Loo
+]sC
+
+# Convert a CIDR mask to a spelled-out netmask
+[
+	ISiAi
+	OSoAo
+	
+	dSm    # how many marks
+	32r-Ss # how many spaces
+	0
+	[2*1+lLx]SM # mark
+	[2*  lLx]SS   # space
+	
+	[lmd1-sm0<M]dSLx
+	[lsd1-ss0<S]dSLx
+
+	
+	0Lm*Ls*LMZ*LSZ*LLZ*K+k
+	
+	Lii
+	Loo
+]sM
+
+# Inverts an IP address
+[
+	ISiAi
+	OSoAo
+	
+	2 32^1-r-
+	
+	Lii
+	Loo
+]sI
+
+# Given an IP address and a CIDR mask, pushes the network address for the subnet
+[
+	ISiAi
+	OSoAo
+	
+	SxdlxrLx # copy top two items
+	32r- # TOS is now how many bits to clear at the end
+	2r^SxdLx%- # Clear da bits
+	
+	Lii
+	Loo
+]sN
+
+# Given an IP address and a CIDR mask, pushes the broadcast address for the subnet
+[
+	ISiAi
+	OSoAo
+	
+	SmSa # Store mask and address
+	lalm # keep original copies in place
+
+	lm32r- # TOS is now how many bits to clear at the end
+	2r^d1-rlar%lar-+ # magic woooOOOoo
+	
+	0Lm*La*K+k
+	
+	Lii
+	Loo
+]sB
+
+# Given a CIDR mask, pushes how many usable addresses exist in that subnet
+[
+	ISiAi
+	d32r-2r^2-
+	Lii
+]sU
+
+# Given an IP address and a CIDR mask, pushes the gateway address (first usable) in the specified subnet
+[
+	lNx1+
+]sG
+
+# Given an IP address and a CIDR mask, prints the following information about the specified subnet:
+# Network address
+# Gateway address
+# Broadcast address
+# Number of usable addresses
+[
+	[n ]P lNxlnx[/]Pp
+	[s ]PdlMxlPx
+	[g ]P lGxlPx
+	[b ]P lBxlPx
+	[u ]P lUxnAP
+]sS
+
+# Given an IP address, a CIDR mask, and a next hop, prints the ip route command to add a static route
+[
+	ISiAi
+	OSoAo
+	
+	ShSmSa
+	[ip route ]n
+	LaLmlNxlnx   # network address
+	32an
+	dlMxlnx      # subnet mask
+	32an
+	Lhlpx        # next hop
+	
+	Lii
+	Loo
+]sR
+
+# Given an IP address and a CIDR mask, prints the command to add the network to OSPF
+[
+	ISiAi
+	OSoAo
+	
+	[network ]n
+	lNxlnx       # network address
+	32an
+	dlMxlIxlnx   # OSPF wildcard bits (inverted netmask)
+	[ area 1]nAP
+	
+	Lii
+	Loo
+]sO
+
+# Bring us to the config terminal prompt
+[[enable]nAP[configure terminal]nAP]sc
+# Bring us to the OSPF terminal prompt
+[lcx[router ospf 1]nAP]so
+# write to memory
+[[do write memory]nAP]sw
