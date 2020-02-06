@@ -164,6 +164,18 @@
 	Loo
 ]sO
 
+# Given an IP address and a CIDR mask, prints the ip address command to set the IP address of an interface
+[
+	ISiAi
+	OSoAo
+	
+	[ip address ]n
+	rdlnx[ ]nrdlMxlPx
+	
+	Lii
+	Loo
+]sA
+
 # Bring us to the config terminal prompt
 [[enable]nAP[configure terminal]nAP]sc
 # Bring us to the OSPF terminal prompt
