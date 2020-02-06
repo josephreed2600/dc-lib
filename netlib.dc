@@ -179,6 +179,6 @@
 # Bring us to the config terminal prompt
 [[enable]nAP[configure terminal]nAP]sc
 # Bring us to the OSPF terminal prompt
-[lcx[router ospf 1]nAP]so
+[[router ospf 1]nAP]so
 # write to memory
 [[do write memory]nAP]sw
